@@ -120,6 +120,17 @@ function SignUpForm() {
         </Field>
 
         {error && <p className="text-sm text-red-500">{error}</p>}
+        {/* {error && (
+          <FieldDescription className="text-sm [&>span]:text-red-500">
+            <span>{error}.</span>{' '}
+            <Link
+              to="/forgot-password"
+              className="underline-offset-4 hover:underline! no-underline!"
+            >
+              Forgot your password?
+            </Link>
+          </FieldDescription>
+        )} */}
 
         <Field>
           <Button type="submit" disabled={loading}>
@@ -164,7 +175,7 @@ function SignUpForm() {
           <FieldDescription className="px-6 text-center">
             Already have an account?{' '}
             <Link to="/login" className="underline underline-offset-4">
-              Log in
+              Log In
             </Link>
           </FieldDescription>
         </Field>
