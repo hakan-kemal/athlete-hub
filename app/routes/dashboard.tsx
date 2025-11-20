@@ -1,13 +1,24 @@
+import { createClient } from '~/lib/supabase/server';
 import { AppSidebar } from '~/components/app-sidebar';
 import { ChartAreaInteractive } from '~/components/chart-area-interactive';
 import { DataTable } from '~/components/data-table';
 import { SectionCards } from '~/components/section-cards';
 import { SiteHeader } from '~/components/site-header';
 import { SidebarInset, SidebarProvider } from '~/components/ui/sidebar';
+import { type LoaderFunctionArgs, redirect } from 'react-router';
 
 import data from '~/dashboard/data.json';
 
-export default function Page() {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const { supabase } = createClient(request);
+  const { data, error } = await supabase.auth.getUser();
+
+  if (error || !data?.user) return redirect('/sign-up');
+
+  return data;
+};
+
+export default function Dashboard() {
   return (
     <SidebarProvider
       style={

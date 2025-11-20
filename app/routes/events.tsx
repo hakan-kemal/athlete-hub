@@ -3,18 +3,17 @@ import { type LoaderFunctionArgs, useLoaderData } from 'react-router';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { supabase } = createClient(request);
-
-  const { data: events, error } = await supabase.from('events').select();
+  const { data, error } = await supabase.from('events').select();
 
   if (error) {
     console.error('Supabase error:', error);
     throw new Response(error.message, { status: 500 });
   }
 
-  return events;
+  return data;
 };
 
-export default function EventsPage() {
+export default function Events() {
   const events = useLoaderData<typeof loader>();
 
   return (

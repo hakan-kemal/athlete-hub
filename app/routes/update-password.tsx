@@ -29,10 +29,10 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   }
 
   // Redirect to sign-in page after successful password update
-  return redirect('/protected', { headers });
+  return redirect('/dashboard', { headers });
 };
 
-export default function Page() {
+export default function UpdatePassword() {
   const fetcher = useFetcher<typeof action>();
 
   const error = fetcher.data?.error;

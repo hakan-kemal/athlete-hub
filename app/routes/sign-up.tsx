@@ -36,7 +36,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     password,
     options: {
       data: { full_name: fullName },
-      emailRedirectTo: `${origin}/protected`,
+      emailRedirectTo: `${origin}/dashboard`,
     },
   });
 
@@ -172,6 +172,7 @@ function SignUpForm() {
               <span className="sr-only">Sign up with Meta</span>
             </Button>
           </Field>
+
           <FieldDescription className="px-6 text-center">
             Already have an account?{' '}
             <Link to="/login" className="underline underline-offset-4">
@@ -184,7 +185,7 @@ function SignUpForm() {
   );
 }
 
-export default function SignUpPage() {
+export default function SignUp() {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">

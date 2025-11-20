@@ -18,7 +18,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { supabase } = createClient(request);
   const { data, error } = await supabase.auth.getUser();
 
-  if (!error && data?.user) return redirect('/protected');
+  if (!error && data?.user) return redirect('/dashboard');
 
   return null;
 };
