@@ -10,7 +10,10 @@ export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
     languageOptions: { globals: globals.browser },
-    rules: { 'no-unused-vars': 'warn', 'no-undef': 'warn' },
+    rules: {
+      'no-unused-vars': 'warn',
+      'no-undef': 'warn',
+    },
   },
   eslint.configs.recommended,
   tseslint.configs.recommended,
